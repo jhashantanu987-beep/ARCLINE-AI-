@@ -4033,6 +4033,11 @@ video {
     line-height: 1.25rem;
   }
 
+  .sm\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
   .sm\:shadow-\[0_40px_80px_-15px_rgba\(0\2c 0\2c 0\2c 0\.1\)\] {
     --tw-shadow: 0 40px 80px -15px rgba(0,0,0,0.1);
     --tw-shadow-colored: 0 40px 80px -15px var(--tw-shadow-color);
@@ -4464,6 +4469,10 @@ video {
   .lg\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+  }
+
+  .lg\:text-\[8\.5rem\] {
+    font-size: 8.5rem;
   }
 }
 

@@ -96,7 +96,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-6xl lg:text-[6.5rem] font-bold text-[#151515] leading-[0.85] tracking-tight"
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-[8.5rem] font-bold text-[#151515] leading-[0.9] tracking-tight"
           >
             The Voice <br /> <span className="text-[#0066cc]">of Growth.</span>
           </motion.h1>
