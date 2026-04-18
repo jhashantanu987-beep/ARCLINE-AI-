@@ -88,7 +88,11 @@ export const Contact = () => {
                   <p className="text-sm font-bold text-slate-600">Now accepting 12 new clinics this month</p>
                </div>
                <div className="flex items-center -space-x-3">
-                  {[1,2,3,4,5].map(i => <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden shadow-sm"></div>)}
+                  {[1,2,3,4,5].map(i => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden shadow-sm">
+                       <img src={`https://i.pravatar.cc/100?img=${i * 10 + 10}`} alt="Clinic Partner" className="w-full h-full object-cover" />
+                    </div>
+                  ))}
                   <p className="pl-6 text-xs font-bold text-slate-400 uppercase tracking-widest">+150 Clinics Managed</p>
                </div>
             </div>

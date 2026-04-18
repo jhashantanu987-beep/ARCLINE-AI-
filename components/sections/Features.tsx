@@ -187,7 +187,7 @@ export const Features = () => {
           </div>
 
           {/* Clean Bento Grid with Refined Geometry */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-[340px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-[380px]">
             {features.map((f, i) => {
               const Icon = f.icon;
               return (
@@ -197,10 +197,10 @@ export const Features = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => setActive(f)}
-                  className={`group cursor-pointer relative p-12 border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-[0_80px_160px_-40px_rgba(0,102,204,0.12)] transition-all duration-700 hover:-translate-y-4 ${f.className} ${f.color}`}
+                  className={`group cursor-pointer relative p-8 sm:p-10 border border-slate-100 overflow-hidden flex flex-col justify-between hover:shadow-[0_80px_160px_-40px_rgba(0,102,204,0.12)] transition-all duration-700 hover:-translate-y-4 ${f.className} ${f.color}`}
                 >
                   <div className="relative z-10">
-                     <div className={`w-16 h-16 rounded-[1.5rem] flex items-center justify-center mb-10 shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 ${f.textColor === 'text-white' ? 'bg-white/10 text-white' : 'bg-white text-[#0066cc]'}`}>
+                     <div className={`w-16 h-16 rounded-[1.5rem] flex items-center justify-center mb-6 sm:mb-8 shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 ${f.textColor === 'text-white' ? 'bg-white/10 text-white' : 'bg-white text-[#0066cc]'}`}>
                         <Icon size={32} />
                      </div>
                      <span className={`text-[11px] font-black uppercase tracking-[0.3em] opacity-50 ${f.textColor}`}>
@@ -215,7 +215,7 @@ export const Features = () => {
                      <p className={`text-base font-medium leading-relaxed opacity-0 group-hover:opacity-80 transition-all duration-500 group-hover:translate-y-0 translate-y-4 ${f.textColor}`}>
                         {f.short}
                      </p>
-                     <div className={`flex items-center gap-3 font-bold text-sm mt-8 ${f.textColor} group-hover:translate-x-1 transition-transform`}>
+                     <div className={`flex items-center gap-3 font-bold text-sm mt-4 sm:mt-6 ${f.textColor} group-hover:translate-x-1 transition-transform`}>
                         Platform Intel <ArrowRight size={18} />
                      </div>
                   </div>
