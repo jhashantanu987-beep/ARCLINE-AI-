@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function () {
+        var hostname = window.location.hostname;
+        var isNonProduction =
+          hostname.includes("dev.") ||
+          hostname.includes("feature.") ||
+          hostname.includes("staging.") ||
+          hostname.includes("herokuapp.com") ||
+          hostname.includes("localhost") ||
+          hostname === "127.0.0.1";
+
+        if (isNonProduction) {
+          // Block all search engine indexing
+          document.write(
+            '<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">',
+          );
+          document.write('<meta name="googlebot" content="noindex, nofollow">');
+          document.write('<meta name="bingbot" content="noindex, nofollow">');
+
+          // Add visual indicator in dev
+          if (hostname.includes("dev.")) {
+            document.title = "[DEV] " + document.title;
+          } else if (hostname.includes("feature.")) {
+            document.title = "[FEATURE] " + document.title;
+          } else if (hostname === "localhost" || hostname === "127.0.0.1") {
+            document.title = "[LOCAL] " + document.title;
+          }
+        }
+      })();
+    </script>
+
+    <!-- Font preconnects and loading (moved from CSS @import to avoid render-blocking) -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+
+    <!-- Resource hints -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://r2.leadsy.ai" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
+    <link rel="preconnect" href="https://connect.facebook.net" />
+    <link rel="preconnect" href="https://www.facebook.com" />
+
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <meta name="application-name" content="Aeva AI" />
+    <meta name="site-name" content="Aeva AI" />
+
+    <!-- Primary Meta Tags -->
+    <title>Aeva AI Receptionist | AI-Powered Phone Answering for clinics</title>
+    <meta
+      name="description"
+      content="Transform your customer service with Aeva's AI phone receptionists. Our AI-powered solution offers reliable, cost-effective call handling available 24/7. Built for allied health practices."
+    />
+    <meta
+      name="keywords"
+      content="AI customer service, virtual receptionist, Cliniko, allied health, automated phone system, AI receptionist, AI call center, voice AI, customer support automation, NZ, New Zealand, Australia, AI phone, phone answering"
+    />
+    <meta name="author" content="Aeva AI Receptionist" />
+
+    <!-- 
+      Robots Meta Tag - Production Default
+      Note: This will be overridden by the script above for non-production environments.
+      The script runs BEFORE this tag is parsed, so non-prod gets noindex first.
+    -->
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+
+    <!-- Canonical URL - Always points to production -->
+    <link rel="canonical" href="https://www.aevaai.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Aeva AI Receptionist" />
+    <meta property="og:url" content="https://www.aevaai.com" />
+    <meta
+      property="og:title"
+      content="Aeva AI Receptionist | AI-Powered Phone Answering for clinics"
+    />
+    <meta
+      property="og:description"
+      content="Transform your customer service with Aeva's AI phone receptionists. Our AI-powered solution offers reliable, cost-effective call handling available 24/7. Built for allied health practices."
+    />
+    <meta property="og:image" content="https://www.aevaai.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Aeva AI Phone Receptionist Dashboard"
+    />
+    <meta property="og:locale" content="en_NZ" />
+    <meta property="og:locale:alternate" content="en_AU" />
+    <meta property="og:locale:alternate" content="en_GB" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@AevaAI" />
+    <meta
+      name="twitter:title"
+      content="Aeva AI Receptionist | AI-Powered Phone Answering for clinics"
+    />
+    <meta
+      name="twitter:description"
+      content="Transform your customer service with Aeva's AI phone receptionists. Our AI-powered solution offers reliable, cost-effective call handling available 24/7. Built for allied health practices."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.aevaai.com/twitter-image.jpg"
+    />
+
+    <!-- Mobile App Meta -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/aevaSmallLogo.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload critical assets -->
+    <link rel="modulepreload" href="data:application/octet-stream;base64,aW1wb3J0IFJlYWN0IGZyb20gInJlYWN0IjsKaW1wb3J0IFJlYWN0RE9NIGZyb20gInJlYWN0LWRvbS9jbGllbnQiOwppbXBvcnQgeyBCcm93c2VyUm91dGVyIH0gZnJvbSAicmVhY3Qtcm91dGVyLWRvbSI7CmltcG9ydCBBcHAgZnJvbSAiLi9BcHAiOwppbXBvcnQgIi4vaW5kZXguY3NzIjsKClJlYWN0RE9NLmNyZWF0ZVJvb3QoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoInJvb3QiKSEpLnJlbmRlcigKICA8UmVhY3QuU3RyaWN0TW9kZT4KICAgIDxCcm93c2VyUm91dGVyIGZ1dHVyZT17eyB2N19zdGFydFRyYW5zaXRpb246IHRydWUsIHY3X3JlbGF0aXZlU3BsYXRQYXRoOiB0cnVlIH19PgogICAgICA8QXBwIC8+CiAgICA8L0Jyb3dzZXJSb3V0ZXI+CiAgPC9SZWFjdC5TdHJpY3RNb2RlPiwKKTsK" />
+
+    <!-- External scripts -->
+    <script defer src="/js/site-scripts.js"></script>
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="dns-prefetch" href="//connect.facebook.net" />
+    <link rel="dns-prefetch" href="//www.facebook.com" />
+
+    <!-- 
+    NOTE: All tracking scripts (GTM, GA, Facebook Pixel) have been moved 
+    to the React app and will only load with proper cookie consent.
+    This ensures GDPR/CCPA compliance.
+    -->
+    <script type="module" crossorigin src="/assets/index-Cbl6hYRQ.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-three-DJYh1aaw.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-framer-BJRRO9jd.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-lottie-DecJgJBM.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-I7kEhJQj.css">
+  </head>
+
+  <body>
+    <!-- Meta Pixel (noscript) - Only loads with consent -->
+    <noscript>
+      <!-- This will be handled by the consent system -->
+    </noscript>
+
+    <!-- Main content -->
+    <div id="root"></div>
+
+    <!-- Main application script -->
+
+    <!-- Fallback for no JavaScript -->
+    <noscript>
+      <div style="text-align: center; padding: 20px">
+        Please enable JavaScript to use Aeva AI Solutions platform.
+      </div>
+    </noscript>
+  </body>
+</html>

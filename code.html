@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Arcline AI | The Digital Physician’s Atelier</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#596374",
+                    "outline": "#737686",
+                    "on-tertiary-fixed": "#001f26",
+                    "tertiary-fixed-dim": "#4cd7f6",
+                    "on-primary-fixed": "#00174d",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#d6e0f4",
+                    "outline-variant": "#c3c5d7",
+                    "on-secondary-fixed-variant": "#3d4757",
+                    "surface-dim": "#dcd9d9",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "secondary-fixed": "#d9e3f7",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#bdc7db",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fcf8f8",
+                    "primary": "#003fb1",
+                    "secondary": "#555f70",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#b5c4ff",
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary": "#ffffff",
+                    "surface": "#fcf8f8",
+                    "on-surface-variant": "#434654",
+                    "background": "#fcf8f8",
+                    "on-primary-fixed-variant": "#003dab",
+                    "surface-container-low": "#f6f3f2",
+                    "surface-variant": "#e5e2e1",
+                    "on-secondary-fixed": "#121c2a",
+                    "on-primary-container": "#d4dcff",
+                    "surface-container": "#f0edec",
+                    "tertiary": "#005160",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#1a56db",
+                    "surface-tint": "#1353d8",
+                    "tertiary-container": "#006b7d",
+                    "primary-fixed-dim": "#b5c4ff",
+                    "surface-container-highest": "#e5e2e1",
+                    "inverse-surface": "#313030",
+                    "tertiary-fixed": "#acedff",
+                    "on-tertiary-container": "#99e9ff",
+                    "on-background": "#1c1b1b",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#ebe7e7",
+                    "on-surface": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            },
+            "animation": {
+                'float-3d': 'float-3d 8s ease-in-out infinite',
+                'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+                'incoming-call': 'incoming-call 2s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                'fade-in-up': 'fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+                'stagger-1': 'fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards',
+                'stagger-2': 'fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards',
+                'stagger-3': 'fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards',
+                'glow': 'glow 2s ease-in-out infinite',
+                'chat-pop': 'chat-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+                'dot-flash': 'dot-flash 1s infinite alternate',
+                'wave-1': 'wave 1s ease-in-out infinite alternate',
+                'wave-2': 'wave 1.2s ease-in-out infinite alternate',
+                'wave-3': 'wave 0.8s ease-in-out infinite alternate',
+                'wave-4': 'wave 1.1s ease-in-out infinite alternate',
+                'wave-5': 'wave 0.9s ease-in-out infinite alternate',
+            },
+            "keyframes": {
+                'float-3d': {
+                    '0%, 100%': { transform: 'translateY(0px) rotateX(2deg) rotateY(-2deg)' },
+                    '50%': { transform: 'translateY(-25px) rotateX(-2deg) rotateY(2deg)' },
+                },
+                'pulse-slow': {
+                    '0%, 100%': { opacity: 1 },
+                    '50%': { opacity: 0.7 },
+                },
+                'incoming-call': {
+                    '0%': { transform: 'scale(1)', opacity: 0.6 },
+                    '100%': { transform: 'scale(1.5)', opacity: 0 },
+                },
+                'fade-in-up': {
+                    '0%': { opacity: 0, transform: 'translateY(20px)' },
+                    '100%': { opacity: 1, transform: 'translateY(0)' },
+                },
+                'glow': {
+                    '0%, 100%': { boxShadow: '0 0 15px rgba(34, 197, 94, 0.4)' },
+                    '50%': { boxShadow: '0 0 30px rgba(34, 197, 94, 0.7)' },
+                },
+                'chat-pop': {
+                    '0%': { opacity: 0, transform: 'scale(0.8) translateY(10px)' },
+                    '100%': { opacity: 1, transform: 'scale(1) translateY(0)' },
+                },
+                'dot-flash': {
+                    '0%': { opacity: 0.2 },
+                    '100%': { opacity: 1 },
+                },
+                'wave': {
+                    '0%': { height: '8px' },
+                    '100%': { height: '24px' }
+                }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .phone-frame {
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.25), 0 30px 60px -30px rgba(0, 0, 0, 0.3);
+            perspective: 1000px;
+        }
+        .staggered-entry { opacity: 0; }
+        
+        /* Typing indicator dots */
+        .typing-dots span {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: currentColor;
+            margin: 0 1px;
+        }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        /* Animation Sequence Controls */
+        .anim-typing-1 { animation: fade-in-out 2s forwards; }
+        .anim-bubble-1 { animation: chat-pop 0.4s 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; opacity: 0; }
+        .anim-typing-2 { animation: fade-in-out 2s 2.5s forwards; opacity: 0; }
+        .anim-bubble-2 { animation: chat-pop 0.4s 4.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; opacity: 0; }
+
+        @keyframes fade-in-out {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fcf8f8]/80 dark:bg-slate-950/80 backdrop-blur-xl transition-all duration-300">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+<div class="font-serif font-bold text-2xl tracking-tighter text-[#1c1b1b] dark:text-slate-100">Arcline AI</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-[#1A56DB] dark:text-blue-400 font-medium font-serif text-lg tracking-tight hover:text-[#1A56DB] transition-colors duration-300" href="#">Features</a>
+<a class="text-[#1c1b1b] dark:text-slate-400 font-serif text-lg tracking-tight hover:text-[#1A56DB] transition-colors duration-300" href="#">How it Works</a>
+<a class="text-[#1c1b1b] dark:text-slate-400 font-serif text-lg tracking-tight hover:text-[#1A56DB] transition-colors duration-300" href="#">Case Studies</a>
+<a class="text-[#1c1b1b] dark:text-slate-400 font-serif text-lg tracking-tight hover:text-[#1A56DB] transition-colors duration-300" href="#">FAQ</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg font-medium tracking-tight shadow-sm hover:opacity-90 transition-all">
+                Get Started
+            </button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="pt-40 pb-20 px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-xs font-bold tracking-widest uppercase">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                AI-Powered Front Desk
+            </div>
+<h1 class="font-serif text-5xl md:text-7xl font-bold text-on-surface leading-[1.1] tracking-tight">
+                Your front desk never sleeps. Neither does your revenue.
+            </h1>
+<p class="text-on-surface-variant text-xl leading-relaxed max-w-xl">
+                Arcline AI handles bookings, rescheduling, and enquiries 24/7. Stop losing patients to voicemail and start growing your clinical practice with effortless automation.
+            </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all">
+                    Open Your Front Desk
+                </button>
+<button class="bg-surface-container-low text-primary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-surface-container-high transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">play_circle</span>
+                    Watch the demo
+                </button>
+</div>
+</div>
+<div class="relative flex justify-center">
+<div class="absolute -inset-20 bg-primary/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+<!-- Animated Mobile Phone Frame with 3D Tilt -->
+<div class="relative w-[300px] h-[600px] animate-float-3d phone-frame bg-[#0a0a0b] rounded-[3rem] border-8 border-[#1a1a1c] overflow-hidden">
+<!-- Phone Inner Screen -->
+<div class="relative h-full w-full bg-[#f8fafc] overflow-hidden">
+<!-- App Interface Layout -->
+<div class="p-6 pt-10">
+<div class="flex flex-col items-center mb-6">
+<!-- Voice Wave Animation -->
+<div class="flex items-center justify-center gap-1.5 h-8 mb-4">
+<div class="w-1.5 bg-primary rounded-full animate-wave-1"></div>
+<div class="w-1.5 bg-primary rounded-full animate-wave-2"></div>
+<div class="w-1.5 bg-primary rounded-full animate-wave-3"></div>
+<div class="w-1.5 bg-primary rounded-full animate-wave-4"></div>
+<div class="w-1.5 bg-primary rounded-full animate-wave-5"></div>
+<div class="w-1.5 bg-primary rounded-full animate-wave-2"></div>
+<div class="w-1.5 bg-primary rounded-full animate-wave-1"></div>
+</div>
+<div class="flex items-center gap-2 animate-fade-in-up">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-[10px] font-bold">A</div>
+<span class="font-serif font-bold text-slate-800">Arcline AI</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Booking Card -->
+<div class="staggered-entry animate-stagger-1 bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">event</span>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest">Next Booking</p>
+<p class="text-sm font-bold text-slate-800">Jane Doe - 2:30 PM</p>
+</div>
+</div>
+<!-- Live Chat Interaction with Typing Animation -->
+<div class="staggered-entry animate-stagger-2 bg-white p-4 rounded-2xl shadow-sm border border-slate-100 h-64 flex flex-col">
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mb-3">Live Chat Interaction</p>
+<div class="space-y-4 flex-1">
+<!-- Patient Typing Indicator -->
+<div class="anim-typing-1 flex items-center gap-2">
+<div class="bg-slate-100 p-2 rounded-lg rounded-tl-none w-16 flex items-center justify-center text-slate-400">
+<div class="typing-dots">
+<span class="animate-dot-flash"></span>
+<span class="animate-dot-flash"></span>
+<span class="animate-dot-flash"></span>
+</div>
+</div>
+</div>
+<!-- Patient Bubble -->
+<div class="anim-bubble-1 bg-slate-50 p-2.5 rounded-lg rounded-tl-none w-[85%]">
+<p class="text-[11px] text-slate-600 leading-relaxed">I'd like to book a physiotherapy session for next Tuesday morning.</p>
+</div>
+<!-- AI Typing Indicator -->
+<div class="anim-typing-2 flex items-center gap-2 justify-end">
+<div class="bg-primary/10 p-2 rounded-lg rounded-tr-none w-16 flex items-center justify-center text-primary">
+<div class="typing-dots">
+<span class="animate-dot-flash"></span>
+<span class="animate-dot-flash"></span>
+<span class="animate-dot-flash"></span>
+</div>
+</div>
+</div>
+<!-- AI Response Bubble -->
+<div class="anim-bubble-2 bg-primary/5 p-2.5 rounded-lg rounded-tr-none w-[85%] ml-auto">
+<p class="text-[11px] text-primary leading-relaxed">Certainly. We have 9:00 AM and 10:30 AM available with Dr. Chen. Which works best?</p>
+</div>
+</div>
+</div>
+<!-- Stats -->
+<div class="staggered-entry animate-stagger-3 grid grid-cols-2 gap-3">
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 text-center">
+<p class="text-xl font-bold text-primary">14</p>
+<p class="text-[9px] text-slate-500">Calls Handled</p>
+</div>
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 text-center">
+<p class="text-xl font-bold text-green-600">8</p>
+<p class="text-[9px] text-slate-500">Bookings</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Elements -->
+<div class="absolute top-20 -right-12 bg-white/90 backdrop-blur-md p-3 rounded-xl shadow-xl border border-white/20 animate-float-3d" style="animation-delay: -1.5s;">
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<div class="absolute bottom-40 -left-12 bg-white/90 backdrop-blur-md p-3 rounded-xl shadow-xl border border-white/20 animate-float-3d" style="animation-delay: -3s;">
+<span class="material-symbols-outlined text-green-500">call_received</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Trusted By -->
+<section class="py-16 bg-surface-container-low/50 overflow-hidden">
+<div class="max-w-7xl mx-auto px-8">
+<p class="text-center text-outline font-label text-xs uppercase tracking-[0.2em] mb-10">Trusted by leading practice management systems</p>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale">
+<div class="font-bold text-2xl text-on-surface font-serif">Jane App</div>
+<div class="font-bold text-2xl text-on-surface font-serif">Halaxy</div>
+<div class="font-bold text-2xl text-on-surface font-serif">Carepatron</div>
+<div class="font-bold text-2xl text-on-surface font-serif">Cliniko</div>
+<div class="font-bold text-2xl text-on-surface font-serif">SimplePractice</div>
+</div>
+</div>
+</section>
+<!-- The Problem -->
+<section class="py-32 px-8 max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-5">
+<h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Patients don't wait.<br/><span class="text-primary">Some won't call back.</span></h2>
+<p class="text-on-surface-variant text-lg mb-8 leading-relaxed">
+                Every missed call is a missed opportunity for care and a leak in your clinic's revenue. Modern patients expect immediate responses, or they move to the next search result.
+            </p>
+</div>
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-8 bg-surface-container-lowest rounded-xl shadow-sm border-l-4 border-error">
+<div class="text-error mb-4">
+<span class="material-symbols-outlined text-4xl">phone_missed</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Calls going unanswered</h3>
+<p class="text-on-surface-variant">The average clinic misses 34% of calls after 5 PM and during peak front-desk hours.</p>
+</div>
+<div class="p-8 bg-surface-container-lowest rounded-xl shadow-sm border-l-4 border-primary">
+<div class="flex items-end gap-2 mb-4">
+<div class="w-4 bg-primary/20 h-8 rounded-t"></div>
+<div class="w-4 bg-primary/40 h-12 rounded-t"></div>
+<div class="w-4 bg-primary h-20 rounded-t"></div>
+</div>
+<h3 class="text-xl font-bold mb-2">Patient behavior metrics</h3>
+<p class="text-on-surface-variant">82% of new patients will not leave a voicemail if their first call isn't answered.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- The Solution: Bento Grid -->
+<section class="py-32 bg-surface-container-high/30">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center max-w-2xl mx-auto mb-20">
+<h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Your clinic, always open.</h2>
+<p class="text-on-surface-variant text-lg">Integrated intelligence that sits between your patients and your PMS, ensuring every enquiry is captured and converted.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Column 1 -->
+<div class="space-y-8">
+<div class="p-8 bg-surface-container-lowest rounded-2xl border border-outline-variant/10 group hover:border-primary/30 transition-all duration-500">
+<div class="w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">event_available</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Books &amp; reschedules</h3>
+<p class="text-on-surface-variant">Seamlessly syncs with your calendar to manage appointments without manual intervention.</p>
+</div>
+<div class="p-8 bg-surface-container-lowest rounded-2xl border border-outline-variant/10 group hover:border-primary/30 transition-all duration-500">
+<div class="w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Email enquiries</h3>
+<p class="text-on-surface-variant">Triage complex medical questions and general office enquiries with medical-grade precision.</p>
+</div>
+</div>
+<!-- Column 2 -->
+<div class="bg-primary overflow-hidden rounded-2xl relative flex flex-col items-center justify-start p-8 md:h-[600px]">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_#1a56db,_#00174d)]"></div>
+<div class="relative z-10 text-center mb-12 animate-fade-in-up">
+<h3 class="text-white text-2xl font-serif font-bold mb-2">24/7 Call Answering</h3>
+<p class="text-primary-fixed/80">The voice of your clinic, active always.</p>
+</div>
+<div class="relative w-[240px] h-[400px] mt-auto translate-y-10 animate-float-3d bg-slate-900 rounded-[2.5rem] border-[6px] border-slate-800 overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-[#0f172a] flex flex-col items-center justify-center p-6 text-center">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-32 h-32 bg-blue-500/30 rounded-full animate-incoming-call"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-32 h-32 bg-blue-500/20 rounded-full animate-incoming-call" style="animation-delay: 0.7s"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-32 h-32 bg-blue-500/10 rounded-full animate-incoming-call" style="animation-delay: 1.4s"></div>
+<div class="relative z-10 space-y-6">
+<div class="w-20 h-20 bg-slate-800 rounded-full mx-auto flex items-center justify-center ring-4 ring-blue-500/20 animate-pulse-slow">
+<span class="material-symbols-outlined text-white text-4xl">person</span>
+</div>
+<div class="animate-stagger-1 staggered-entry">
+<p class="text-blue-400 text-xs uppercase tracking-widest font-bold mb-1">Incoming Call</p>
+<p class="text-white text-lg font-bold">New Patient</p>
+<p class="text-slate-400 text-xs">Arcline AI answering...</p>
+</div>
+<div class="flex justify-center gap-6 pt-4 animate-stagger-2 staggered-entry">
+<div class="w-12 h-12 bg-red-500/20 border border-red-500/30 rounded-full flex items-center justify-center text-red-500 hover:bg-red-500 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined">call_end</span>
+</div>
+<div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white animate-glow shadow-lg cursor-pointer">
+<span class="material-symbols-outlined">call</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 3 -->
+<div class="space-y-8">
+<div class="p-8 bg-surface-container-lowest rounded-2xl border border-outline-variant/10 group hover:border-primary/30 transition-all duration-500">
+<div class="w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">group_remove</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Reduces front desk load</h3>
+<p class="text-on-surface-variant">Free up your staff to focus on the patients in the room, while AI handles the phone lines.</p>
+</div>
+<div class="p-8 bg-surface-container-lowest rounded-2xl border border-outline-variant/10 group hover:border-primary/30 transition-all duration-500">
+<div class="w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">shield</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Clinical Compliance</h3>
+<p class="text-on-surface-variant">Built with HIPAA and privacy frameworks in mind for secure health data handling.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="py-32 px-8 max-w-7xl mx-auto">
+<h2 class="font-serif text-4xl md:text-5xl font-bold text-center mb-20">Three stages. Zero gaps.</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
+<div class="hidden md:block absolute top-12 left-1/4 right-1/4 h-[1px] bg-outline-variant/30"></div>
+<div class="text-center relative">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest border-2 border-primary mx-auto flex items-center justify-center text-primary font-serif text-3xl font-bold mb-8 shadow-md">1</div>
+<h3 class="text-xl font-bold mb-4">Connect Your PMS</h3>
+<p class="text-on-surface-variant">Integrate with Jane, Halaxy, or your custom software in less than 10 minutes.</p>
+</div>
+<div class="text-center relative">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest border-2 border-primary mx-auto flex items-center justify-center text-primary font-serif text-3xl font-bold mb-8 shadow-md">2</div>
+<h3 class="text-xl font-bold mb-4">Define Your Tone</h3>
+<p class="text-on-surface-variant">Teach the AI your clinic's procedures, specialist availability, and unique house style.</p>
+</div>
+<div class="text-center relative">
+<div class="w-24 h-24 rounded-full bg-surface-container-lowest border-2 border-primary mx-auto flex items-center justify-center text-primary font-serif text-3xl font-bold mb-8 shadow-md">3</div>
+<h3 class="text-xl font-bold mb-4">Go Live</h3>
+<p class="text-on-surface-variant">Arcline starts answering calls and booking appointments instantly, 24 hours a day.</p>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<h2 class="font-serif text-4xl md:text-5xl font-bold text-center mb-20">Loved by clinic owners across every specialty.</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="p-10 bg-surface-container-low rounded-xl relative">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute top-6 right-6">format_quote</span>
+<p class="text-on-surface-variant text-lg italic mb-8 relative z-10 leading-relaxed">
+                    "Arcline has effectively added an extra 10 hours of front-desk capacity every single week without increasing our overhead. It's the best clinical ROI we've had this year."
+                </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed overflow-hidden">
+<img alt="Dr. Sarah Chen" class="w-full h-full object-cover" data-alt="professional portrait of a female physician in clinical attire with a warm confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxHvOjUE6FVIPJi0S3NWLeKfRw95GyuVddiau9PomqMnst6RtuZqp5S_tKUmpHFpQp2Q3gqhQkwZo6YH3i575UB_CUgfRbIOYEz8eE764K3wm9L-w3F-wuvakEuWag8gy5tLKckd9kemOlZVsrDZln3YBL_yqNcPcMLe5gcdUc60pMmALtLtEikmYHn-LG5GEd50Cp5tdwo6dAxPOEaCozNWU1eJPozKxKw3eVJQkls3ZJMlCr-83zAPVcuUH-MT9ZCZXK8VM7g"/>
+</div>
+<div>
+<p class="font-bold">Dr. Sarah Chen</p>
+<p class="text-sm text-outline">Physiotherapy Lead</p>
+</div>
+</div>
+</div>
+<div class="p-10 bg-surface-container-low rounded-xl relative">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute top-6 right-6">format_quote</span>
+<p class="text-on-surface-variant text-lg italic mb-8 relative z-10 leading-relaxed">
+                    "I no longer worry about missing late-night patient bookings. The AI is professional, accurate, and syncs perfectly with my Halaxy calendar."
+                </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed overflow-hidden">
+<img alt="Mark Sullivan" class="w-full h-full object-cover" data-alt="portrait of a male healthcare professional in a clean modern clinic setting smiling at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD224Oj30Ii62pLfpov1YIgvCKDV6CkFPvT-0BIWGBvNNRYLagOnu08AXNSUXXAEP2Szv9Ql1OzQxDJOkdonpnAFKJuPasQTqbZNsVZbM3QOqcy0CpwbOw0VRQqxvFZC6VmhHtCUOiCVnQ98v22thejDXIZLGkGWl4UTwm6Rs307PiM8afYuhKRYWOPiUNrDwpWhfOE50ak6xHuhqHjf_yM4MEes_pCZBBnNhfSvvy1bHXrKDxN8E2Ycvb-ZhZQ-hHWONa4ihgu_w"/>
+</div>
+<div>
+<p class="font-bold">Mark Sullivan</p>
+<p class="text-sm text-outline">Clinic Director, Podiatry</p>
+</div>
+</div>
+</div>
+<div class="p-10 bg-surface-container-low rounded-xl relative">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute top-6 right-6">format_quote</span>
+<p class="text-on-surface-variant text-lg italic mb-8 relative z-10 leading-relaxed">
+                    "Our patients actually enjoy talking to it. It sounds human, helpful, and never sounds stressed even during our busiest Monday morning rush."
+                </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed overflow-hidden">
+<img alt="Dr. Elena Rossi" class="w-full h-full object-cover" data-alt="headshot of a female dental surgeon in professional blue scrubs with a friendly professional demeanor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36vhUa0FY09Cb_3jg6YFV_jducr5k-2AdmskhE14w6lmVZLUBOS3ifEMZM4NAkGqOmHHbiGPavYmtiun47wvoKp9bHXxfaHc-C5dHgdNzPepAHM0tBQLbD-lg_FnuR_Ajltp-zxRQx1YKIKdYfLeUGglFANpSCNYkD5T3UZu6hT7xlIdgVWcvo--U-2R_lp17TafXYU08aBndUv0eiAlJB6MWi21VY5s04LLqJNRmE4mEvemQ-HCI_CZiTDdue2UrK4YU_V_YcQ"/>
+</div>
+<div>
+<p class="font-bold">Dr. Elena Rossi</p>
+<p class="text-sm text-outline">Cosmetic Dentistry</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-32 px-8 max-w-4xl mx-auto">
+<h2 class="font-serif text-4xl font-bold text-center mb-16">Everything you wanted to ask — answered honestly.</h2>
+<div class="space-y-4">
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-lg">
+                Will it sound like a robot?
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant leading-relaxed">
+                Arcline uses high-fidelity neural voices and advanced LLMs. While we are transparent that it's AI if asked, most patients find it indistinguishable from a professional, highly trained receptionist.
+            </div>
+</details>
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-lg">
+                Is my data and my patients' data safe?
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant leading-relaxed">
+                Security is our bedrock. We are fully HIPAA and GDPR compliant. All data is encrypted at rest and in transit, and we never train our base models on your specific patient data.
+            </div>
+</details>
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant/10" open="">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-lg">
+                What happens if a patient has a medical emergency?
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant leading-relaxed">
+                Arcline AI is trained to recognize "red flag" symptoms. In an emergency, it immediately instructs the caller to hang up and dial emergency services, or it can transfer the call directly to a clinician if preferred.
+            </div>
+</details>
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-lg">
+                How does it handle complex scheduling rules?
+                <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant leading-relaxed">
+                We ingest your specific business rules: which practitioners take new patients, how much time is needed between specific procedures, and your cancellation policies.
+            </div>
+</details>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-8 mb-24">
+<div class="max-w-7xl mx-auto rounded-3xl bg-primary text-white p-12 md:p-24 relative overflow-hidden text-center">
+<div class="absolute inset-0 opacity-10">
+<img alt="Background Textures" class="w-full h-full object-cover" data-alt="abstract architectural medical facility with soft curves and blue glass textures reflecting morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASFhmCdiJMVGWSKEG3AMqFe7mOTkPfN930e-2TzvFF2xQLMadPDsmqAxh-X3L3rDoKM8ISrLB2W8hlZQF8qti1ii1x3ukqwZQFXvDk1iEPkVXJxZ93tPoSBs-d82S7V9WWGczKc21lPydLdx2Jy2QQLgRH56TFk2qBhXF9Pij4kRpAKVMpYVMOXdKP2a7FhTI7DbrB3fOC3Qm5lAXj5hyv-0qDs6Nhd0qNd_JBj06yEReqzp7qbUQaX2OrTdwxh72tAauU0YkzVA"/>
+</div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<h2 class="font-serif text-4xl md:text-6xl font-bold mb-8">Ready to automate your front desk and grow your clinic?</h2>
+<p class="text-xl mb-12 text-primary-fixed-dim">Join 200+ clinics that have stopped missing calls and started scaling their practice today.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-white text-primary px-10 py-5 rounded-lg font-bold text-xl hover:bg-opacity-90 transition-all">
+                    Open Your Front Desk
+                </button>
+<button class="border border-white/30 text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-white/10 transition-all">
+                    Book a discovery call
+                </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#ebe7e7] dark:bg-slate-900 w-full py-16 px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="font-serif font-bold text-xl text-[#1c1b1b] dark:text-slate-100">Arcline AI</div>
+<p class="font-sans text-sm tracking-wide uppercase text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">
+                © 2024 Arcline AI. The Digital Physician’s Atelier. Empowering modern clinics with intelligent automation and human-centric care.
+            </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<a class="font-sans text-sm tracking-wide uppercase text-slate-600 dark:text-slate-400 hover:underline decoration-2 underline-offset-4" href="#">Privacy Policy</a>
+<a class="font-sans text-sm tracking-wide uppercase text-slate-600 dark:text-slate-400 hover:underline decoration-2 underline-offset-4" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-sans text-sm tracking-wide uppercase text-slate-600 dark:text-slate-400 hover:underline decoration-2 underline-offset-4" href="#">Clinical Safety</a>
+<a class="font-sans text-sm tracking-wide uppercase text-slate-600 dark:text-slate-400 hover:underline decoration-2 underline-offset-4" href="#">Contact Support</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

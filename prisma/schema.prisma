@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?  @unique
+  password  String?
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Existing Relations
+  patients     Patient[]
+  appointments Appointment[]
+  calls        CallLog[]
+
+  // New Booking Relations
+  bookings     Booking[]
+}
+
+model Patient {
+  id        String   @id @default(cuid())
+  name      String
+  email     String?
+  phone     String?
+  status    String   @default("Active") // Active, New, Inactive
+  createdAt DateTime @default(now())
+  
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  
+  appointments Appointment[]
+  calls        CallLog[]
+}
+
+model Appointment {
+  id        String   @id @default(cuid())
+  date      DateTime
+  time      String
+  type      String   // New Booking, Reschedule, Follow-up
+  status    String   @default("Confirmed") // Confirmed, Pending, Cancelled
+  createdAt DateTime @default(now())
+  
+  patientId String
+  patient   Patient  @relation(fields: [patientId], references: [id])
+  
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model CallLog {
+  id        String   @id @default(cuid())
+  duration  String
+  type      String   // Inquiry, Booking, Support
+  outcome   String   // Confirmed, Answered, AI Active
+  createdAt DateTime @default(now())
+  
+  patientId String?
+  patient   Patient? @relation(fields: [patientId], references: [id])
+  
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+// ─── Calendar Booking System ──────────────────────────────────────────────────
+
+model Booking {
+  id        String   @id @default(cuid())
+  date      DateTime
+  time      String
+  name      String
+  email     String
+  phone     String?
+  notes     String?
+  status    String   @default("booked") // booked | cancelled
+  createdAt DateTime @default(now())
+
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+}
+
+model Availability {
+  id    String   @id @default(cuid())
+  date  DateTime @unique
+  slots Json     // ["09:00", "09:30", "10:00", ...]
+}
